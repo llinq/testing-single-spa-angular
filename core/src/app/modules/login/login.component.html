@@ -1,0 +1,43 @@
+<div fxLayout="row" fxLayoutAlign="center center" id="login">
+
+    <mat-card fxFlex="0 0 25%" class="mat-elevation-z5">
+        <mat-card-content>
+
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <img [src]="'images/logo-mtcorp.png' | assets">
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="row wrap">
+
+                <mat-form-field appearance="outline" fxFlex="100%">
+                    <mat-label>
+                        E-mail
+                    </mat-label>
+                    <input matInput type="text" formControlName="email" />
+                    <mat-error *ngIf="form.get('email').invalid">
+                        Obrigatório
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="100%">
+                    <mat-label>
+                        Senha
+                    </mat-label>
+                    <input matInput type="password" formControlName="senha" />
+                    <mat-error *ngIf="form.get('senha').invalid">
+                        Obrigatório
+                    </mat-error>
+                </mat-form-field>
+
+                <div fxFlex="100%" fxLayoutAlign="end end">
+                    <div class="button">
+                        <button mat-stroked-button color="primary">
+                            Entrar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

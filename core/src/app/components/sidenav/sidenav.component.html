@@ -1,0 +1,73 @@
+<mat-drawer-container>
+
+    <mat-drawer #sidenav mode="side" color="primary">
+
+        <div class="sidenav-header">
+            <img [src]="'images/logotipo.png' | assets">
+        </div>
+
+        <div class="sidenav-user" fxLayout="row wrap" fxLayoutAlign="center center">
+            <img [src]="'images/user-novo.png' | assets">
+            <div class="user-description" fxFlex="100%">
+                <label class="text-primary">
+                    Teste
+                </label>
+                <label class="text-secondary">
+                    teste@mtcorp.com.br
+                </label>
+            </div>
+        </div>
+
+        <div class="sidenav-projects">
+
+            <div class="menu-title">
+                <label class="title-primary">
+                    PROJETOS
+                </label>
+                <label class="title-secondary">
+                    Principais projetos
+                </label>
+            </div>
+
+            <div class="project-list">
+                <a href="/" onclick="singleSpaNavigate(event)" class="active">
+                    <mat-icon [inline]="true" class="material-icons-outlined">
+                        home
+                    </mat-icon>
+                    <span>
+                        Início
+                    </span>
+                </a>
+                <a href="/abastecimento/analise-compra" onclick="singleSpaNavigate(event)">
+                    <mat-icon [inline]="true" class="material-icons-outlined">
+                        inventory
+                    </mat-icon>
+                    <span>
+                        Abastecimento
+                    </span>
+                </a>
+                <a href="/comercial" onclick="singleSpaNavigate(event)">
+                    <mat-icon class="material-icons-outlined">
+                        shopping_cart
+                    </mat-icon>
+                    <span>
+                        Comercial
+                    </span>
+                </a>
+                <a href="/logistica" onclick="singleSpaNavigate(event)">
+                    <mat-icon class="material-icons-outlined">
+                        local_shipping
+                    </mat-icon>
+                    <span>
+                        Logística
+                    </span>
+                </a>
+            </div>
+
+        </div>
+
+    </mat-drawer>
+
+    <ng-content></ng-content>
+
+</mat-drawer-container>

@@ -1,0 +1,45 @@
+<mat-toolbar class="p-0 mat-elevation-z1">
+
+    <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+
+        <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+
+            <button mat-icon-button class="navbar-toggle-button" (click)="openMenu()" fxHide.gt-md>
+                <mat-icon class="secondary-text">
+                    menu
+                </mat-icon>
+            </button>
+
+            <div class="toolbar-separator" fxHide.gt-md></div>
+
+        </div>
+
+        <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+
+            <button mat-button fxHide fxShow.gt-xs class="language-button" [matMenuTriggerFor]="languageMenu"
+                class="language-selected">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <img class="flag mr-8" [src]="'icons/flags/'+selectedLanguage.flag+'.png' | assets" width="24">
+                </div>
+            </button>
+
+            <mat-menu #languageMenu="matMenu" class="language-menu mat-elevation-z5">
+
+                <button mat-menu-item *ngFor="let lang of languages" class="button-language" [ngClass]="{'active': lang.selected}">
+                    <span fxLayout="row" fxLayoutAlign="start center">
+                        <img class="flag mr-16" [src]="'icons/flags/'+lang.flag+'.png' | assets" width="24">
+                        <span style="padding-left: 12px; color: white; font-weight: bold;">
+                            {{ lang.title | translator }}
+                        </span>
+                    </span>
+                </button>
+
+            </mat-menu>
+
+            <div class="toolbar-separator" fxHide fxShow.gt-xs></div>
+
+        </div>
+
+    </div>
+
+</mat-toolbar>

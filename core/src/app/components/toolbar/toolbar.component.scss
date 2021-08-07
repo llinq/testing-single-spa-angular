@@ -1,0 +1,59 @@
+:host {
+    position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 4;
+    background-color: #202534;
+    color: white;
+
+    &.below {
+        z-index: 2;
+    }
+
+    .mat-toolbar {
+        position: relative;
+        background: inherit !important;
+        color: inherit !important;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        .logo-icon {
+            width: 38px;
+        }
+    }
+
+    .language-button {
+        min-width: 64px;
+        height: 64px;
+    }
+
+    .navbar-toggle-button {
+        min-width: 56px;
+        height: 56px;
+    }
+
+    .toolbar-separator {
+        height: 64px;
+        width: 1px;
+    }
+}
+
+::ng-deep  .mat-menu-panel {
+    background-color: #202534;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px;
+    line-height: 21px;
+
+    .button-language {
+        &:hover, &.active {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        &:not(:first-child) {
+            margin-top: 6px;
+        }
+    }
+}

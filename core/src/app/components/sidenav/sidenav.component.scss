@@ -1,0 +1,91 @@
+mat-drawer {
+    background: #202534;
+    color: white;
+}
+
+.sidenav-header {
+    padding: 16px;
+    text-align: center;
+
+    img {
+        width: 64px;
+    }
+}
+
+.sidenav-user {
+    padding: 0px 16px 16;
+
+    img {
+        border-radius: 9999px!important;
+        width: 96px;
+    }
+
+    .user-description {
+        margin-top: 16px;
+
+        label {
+            display: block;
+            text-align: center;
+        }
+    }
+}
+
+.sidenav-projects {
+    margin: 0 12px;
+
+    .menu-title {
+        padding: 10px 16px;
+
+        label {
+            display: block;
+            text-align: left;
+
+            &.title-primary {
+                color: #818cf8;
+                font-weight: 600;
+            }
+
+            &.title-secondary {
+                color: white;
+                font-size: 11px;
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .project-list {
+        a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 16px;
+            margin-top: 6px;
+
+            &:hover, &.active {
+                background-color: rgba(255, 255, 255, 0.12);
+                border-radius: 6px;
+            }
+
+            mat-icon {
+                font-size: 24px;
+                vertical-align:middle;
+            }
+
+            span {
+                padding-left: 15px;
+            }
+        }
+    }
+}
+
+.sidenav-projects {
+    margin-top: 24px;
+}
+
+.text-primary {
+    font-weight: bold;
+}
+
+.text-secondary {
+    color: #94a3b8;
+}

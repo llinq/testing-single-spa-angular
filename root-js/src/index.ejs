@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>
+    Root Config
+  </title>
+
+  <!-- Remover caso a aplicação ofereça suporte somente a navegadores assíncronos !-->
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+
+  <!-- Políticas de segurança externa da aplicação !-->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';img-src *;">
+
+  <!-- Configuração do SystemJS -->
+  <meta name="importmap-type" content="systemjs-importmap" />
+
+  <!-- Descomentar linha a baixo para ocultar chaves do importmap em domínios específicos (produção) !-->
+  <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
+
+  <!-- Importmap do script single-spa -->
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+
+        "@mtcorp/root-config": "//localhost:9000/mtcorp-root-config.js",
+
+        "@mtcorp/core/navigation": "http://localhost:4200/main.js", 
+
+        "@mtcorp/core": "http://localhost:4200/main.js",
+        
+        "@mtcorp/abastecimento/analise-compra": "http://localhost:4201/main.js",
+
+        "@mtcorp/shared": "http://localhost:4500/library/bundles/mtcorp-shared.umd.min.js"
+      }
+    }
+  </script>
+
+  <!-- Importação do script simple-spa -->
+
+  <!-- <script type="systemjs-importmap">
+    {
+      "imports": {
+
+      }
+    }
+  </script> -->
+
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
+
+    <!-- Importmap das rotas -->
+  <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
+  <!-- <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@mtcorp/core": "http://localhost:4200/main.js",
+        "@mtcorp/shared": "http://localhost:4200/main.js",
+        
+        "@mtcorp/abastecimento/cadastros": "http://localhost:4200/main.js",
+        "@mtcorp/abastecimento/parametrizacao-estoque": "http://localhost:4200/main.js",
+        
+        "@mtcorp/comercial/cadastros": "http://localhost:4200/main.js",
+        "@mtcorp/comercial/ciclo-vendas": "http://localhost:4200/main.js",
+        "@mtcorp/comercial/dashboard-vendedor": "http://localhost:4200/main.js",
+        "@mtcorp/comercial/gestao": "http://localhost:4200/main.js",
+        "@mtcorp/comercial/pesquisa-clientes": "http://localhost:4200/main.js",
+        
+        "@mtcorp/logistica/cadastros": "http://localhost:4200/main.js",
+        "@mtcorp/logistica/dashboard": "http://localhost:4200/main.js",
+        "@mtcorp/logistica/entradas-materiais": "http://localhost:4200/main.js",
+        "@mtcorp/logistica/gestao-entregas": "http://localhost:4200/main.js",
+        "@mtcorp/logistica/gestao-fretes": "http://localhost:4200/main.js",
+        "@mtcorp/logistica/yms": "http://localhost:4200/main.js",
+      }
+    }
+  </script> -->
+
+  <!-- Biblioteca para detecção de alteração do Angular -->
+  <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
+
+  <!-- Importação dos scripts do SystemJS -->
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+  <% if (isLocal) { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/named-exports.js"></script>
+    <% } else { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/named-exports.min.js"></script>
+    <% } %>
+
+        <!-- Importação dos scripts do Angular Material !-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body style="background-color: #424242;">
+  <noscript>
+    É necessário habilitar o Javascript no seu navegador para utilizar essa aplicação.
+  </noscript>
+
+  <!-- Inclusão do arquivo de rotas !-->
+  <script>
+    System.import('@mtcorp/root-config');
+  </script>
+
+  <!-- Componente de importmap do SystemJS !-->
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+
+</html>

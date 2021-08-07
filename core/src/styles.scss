@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: Inter,
+);
+
+@include angular-material-typography($custom-typography);
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px;
+    line-height: 21px;
+}
+
+body {  
+    background-color: white !important;
+    color: black;
+    margin: 0;
+    overflow-y: hidden;
+    position: relative;
+}
